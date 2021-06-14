@@ -1,0 +1,9 @@
+<div class="new_stores">
+  <%= simple_form_for @store do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :name, placeholder: 'name', maxlength: 25, input_html: { class: 'dasboard_input' }%>
+    <%= f.input :presentation, placeholder: 'presentation', input_html: { class: 'dasboard_input' }, maxlength: 50 %>
+
+    <%= f.button :submit, class: 'device_identification update_store' %>
+  <% end %>
+</div>

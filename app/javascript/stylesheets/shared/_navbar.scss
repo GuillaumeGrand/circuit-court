@@ -1,0 +1,40 @@
+.topnav {
+  display: flex;
+  flex-direction: row ;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 64px;
+  background-color: green;
+}
+
+.topnav form {
+  flex-grow: 4;
+  display: flex;
+  padding-left: 20px;
+  padding-right: 20px;
+  max-height: 32px;
+  min-height: 32px;
+}
+
+.navbar_link {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+}
+
+.topnav nav {
+  display: flex;
+  justify-content: center;
+}
+
+.topnav nav, .logo {
+  width: 304px;
+}
+
+ #search_box {
+   flex-grow: 2;
+ }

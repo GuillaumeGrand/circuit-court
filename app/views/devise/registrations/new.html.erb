@@ -1,0 +1,60 @@
+<div class="indentification_page">
+
+  <div class="indentification_img">
+    <%= image_tag ("le-petit-commerce.jpg") %>
+  </div>
+
+  <div class= "identication_data">
+    <h3>Circuit court</h3>
+    
+    <h2>Bienvenu dans le monde du petit commerce !</h2>
+
+    <div class="identication_alt">
+      <h5>Deja inscrit?</h5><%= render "devise/shared/links" %>
+    </div>
+
+
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+
+
+    <div class="identication_button">
+      <div class="radio_button">
+        <%= f.radio_button :user_type, "personnel", :checked => true %>
+        <%= f.label :user_type, "personnel" %>
+      </div>
+      <div class="radio_button">
+        <%= f.radio_button :user_type, "entrepreneur" %>
+        <%= f.label :user_type, "entrepreneur" %>
+      </div>
+    </div>
+    <div class="field">
+      <%= f.email_field :email,
+                  required: true,
+                  autofocus: true,
+                  placeholder: "Email",
+                  input_html: { autocomplete: "email" },
+                  class: "device_identification"%>
+    </div>
+    <div class="field">
+      <%= f.password_field :password,
+                  required: true,
+                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                  placeholder: "Password",
+                  input_html: { autocomplete: "new-password" },
+                  class: "device_identification" %>
+    </div>
+    <div class="field">
+      <%= f.password_field :password_confirmation,
+                  required: true,
+                  placeholder: "Password confirmation",
+                  input_html: { autocomplete: "new-password" },
+                  class: "device_identification" %>
+    </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Sign up", class: "device_identification", id: "divice_sign_in" %>
+  </div>
+<% end %>
+</div>
+</div>

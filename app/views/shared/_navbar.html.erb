@@ -1,0 +1,15 @@
+<header class="topnav">
+  <%= link_to "logo", "/path", class: "navbar_link logo" %>
+
+  <%= form_with url: stores_path, method: :get do |f| %>
+    <%= f.text_field :search_box %>
+    <%= f.submit "Search" %>
+  <% end %>
+
+  <nav>
+    <%= link_to "sign up", new_user_registration_path, class: "navbar_link" %>
+    <%= link_to "sign in", new_user_session_path, class: "navbar_link" %>
+    <%= link_to "deconecter", destroy_user_session_path, method: :delete, class: "navbar_link" %>
+
+  </nav>
+</header>
