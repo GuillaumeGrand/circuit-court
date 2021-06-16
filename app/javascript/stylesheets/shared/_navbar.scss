@@ -4,7 +4,7 @@
   justify-content: space-around;
   align-items: center;
   min-height: 64px;
-  background-color: green;
+  background-color: #552C00;
 }
 
 .topnav form {
@@ -32,7 +32,13 @@
 }
 
 .topnav nav, .logo {
-  width: 304px;
+  width: 352px;
+}
+
+.navbar_link {
+  color: white;
+  text-decoration: none;
+
 }
 
  #search_box {
