@@ -7,8 +7,8 @@
   <% end %>
 
   <nav>
-    <%= link_to "identifier-vous", new_user_session_path, class: "navbar_link" %>
+    <%= current_user_type %>
     <%= link_to "Mes achats", new_user_registration_path, class: "navbar_link" %>
-    <%= link_to "deconecter", destroy_user_session_path, method: :delete, class: "navbar_link" %>
+    <%= link_to "panier", root_path, class: "navbar_link" %>
   </nav>
 </header>

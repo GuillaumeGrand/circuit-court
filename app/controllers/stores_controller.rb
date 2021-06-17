@@ -1,5 +1,5 @@
 class StoresController < ApplicationController
-  before_action :authenticate_retailer_user, except: [:index]
+  before_action :authenticate_retailer, except: [:index]
 
   def index
     @stores = Store.all
