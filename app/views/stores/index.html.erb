@@ -1,4 +1,18 @@
-<%= @stores.each do |store| %>
-<h2><%= store.name %></h2>
-<%= cl_image_tag store.photo.key, :width=>150, :crop=>"fill" %>
-<% end %>
+<div class="store_index">
+  <div class="cards" >
+      <% if @stores.present? %>
+        <% @stores.each do |store|  %>
+          <a href = "stores/<%= store.id %>">
+            <div class="card-trip">
+              <%= cl_image_tag store.photo.key if store.photo.present? %>
+              <div class="card-store-infos">
+                  <h2><%= store.name %></h2>
+                  <p><%= store.presentation %></p>
+                <h2 class="card-trip-pricing">199</h2>
+              </div>
+            </div>
+          </a>
+        <% end %>
+      <% end %>
+  </div>
+</div>

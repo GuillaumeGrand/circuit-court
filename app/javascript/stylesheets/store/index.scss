@@ -1,0 +1,79 @@
+.store_index{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card-trip {
+  margin-right: 1em;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin: 16px;
+  width: 250px;
+}
+
+.card-trip > img {
+  height: 200px;
+  width: 250px;
+  object-fit: cover;
+}
+
+.card-trip h2 {
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+  margin: 0;
+}
+
+.card-trip p {
+  font-size: 14px;
+  opacity: .7;
+  color: black;
+  margin: 0;
+}
+
+.card-trip .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-store-infos{
+  padding: 16px;
+  height: 80px;
+}
+
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
+.card-trip-infos{
+  background-color: #FAFAFA
+}
+
+.card-trip-pricing{
+  width: 188px;
+  padding-right: 32px;
+  padding-top: 40px;
+  text-decoration: none;
+}
+
+.card-trip-pricing h2{
+  color: red;
+  font-size:24px;
+  font-weight: bold;
+  padding-bottom: 8px;
+}

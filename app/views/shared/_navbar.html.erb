@@ -1,5 +1,5 @@
 <header class="topnav">
-  <%= link_to "logo", "/path", class: "navbar_link logo" %>
+  <%= link_to "logo", root_path, class: "navbar_link logo" %>
 
   <%= form_with url: stores_path, method: :get do |f| %>
     <%= f.text_field :search_box %>
