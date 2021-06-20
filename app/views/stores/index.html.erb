@@ -1,3 +1,4 @@
 <%= @stores.each do |store| %>
 <h2><%= store.name %></h2>
+<%= cl_image_tag store.photo.key, :width=>150, :crop=>"fill" %>
 <% end %>
