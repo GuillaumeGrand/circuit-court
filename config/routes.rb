@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :stores do
     resources :products, only: %i[index new create]
   end
+
+  get '/dashboard', to: 'users#dashboard', as: :dashboard
 end
