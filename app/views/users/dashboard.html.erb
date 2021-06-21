@@ -6,7 +6,7 @@
         <li><%= link_to "mise a jours de la boutique", root_path, class: "dasboard_button", remote: true %></li>
       <% end %>
       <% if current_user.store.nil? ==  false %>
-        <li><%= link_to "crée un produit", root_path, class: "dasboard_button", remote: true %></li>
+        <li><%= link_to "crée un produit", new_store_product_path(current_user.store.id), class: "dasboard_button", remote: true %></li>
         <li><%= link_to "mise a jours des produits", root_path, class: "dasboard_button", remote: true %></li>
         <li><%= link_to "commande", root_path , class: "dasboard_button", remote: true %></li>
         <li><%= link_to "historique des commande", root_path , class: "dasboard_button", remote: true %></li>

@@ -10,14 +10,12 @@ class StoresController < ApplicationController
   end
 
   def create
-
     @store = Store.create(store_params)
     @store.user = User.find(current_user.id)
     # CreateSubscription.new(current_trader).call
     @store.save!
 
     redirect_to :controller => 'stores', :action => 'index'
-
   end
 
   private
