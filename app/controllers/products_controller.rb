@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_retailer, except: [:index]
+  before_action :authenticate_retailer, except: [:index, :show]
 
   def index
     @store = Store.find(params[:store_id])
@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-
+    @product = Product.includes([photos_attachments: :blob]).find(params[:id])
   end
 
   def new

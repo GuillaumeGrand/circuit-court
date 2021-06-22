@@ -2,9 +2,18 @@
 @import "shared/navbar";
 @import "devise/identification";
 @import "store/index";
+@import "product/index";
+@import "product/show";
 
 body {
+  line-height: 1.6;
   margin: 0;
   padding: 0;
-  height: 100%;
+  min-height: 100vh;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }

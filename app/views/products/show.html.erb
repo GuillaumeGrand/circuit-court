@@ -1,1 +1,30 @@
-<h1>show</h1>
+<div class="wrapper">
+  <div class="page_product">
+    <div id= "show_photo">
+      <div class = "product_photo">
+         <% @product.photos.each do |photo| %>
+                <%= cl_image_tag(photo.key, :width => 40, :height => 40, :class => "photo_product", :id => photo.id) %>
+        <% end %>
+      </div>
+      <div id = "zoom_photo">
+          <%= cl_image_tag(@product.photos.first.key) %>
+      </div>
+    </div>
+
+    <div class="product_data">
+      <h1><%= @product.name %></h1>
+      <div class="product_data_presentation">
+        <%= simple_format(@product.desc) %>
+      </div>
+
+      <h6 class="product_price size-medium">Prix: <%= @product.price %></h6>
+    </div>
+
+    <div class="product_data_recap">
+       <h6 class="product_price size-medium">Prix: <%= @product.price %></h6>
+
+    
+      <i class="fa fa-lock">Transaction securisée</i>
+    </div>
+  </div>
+</div>
