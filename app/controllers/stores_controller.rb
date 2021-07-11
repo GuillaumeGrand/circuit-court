@@ -2,7 +2,7 @@ class StoresController < ApplicationController
   before_action :authenticate_retailer, except: [:index]
 
   def index
-    @stores = Store.all
+    @stores = Store.includes([photo_attachment: :blob]).all
   end
 
   def new

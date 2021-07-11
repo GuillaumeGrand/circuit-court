@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
 
   def index
     @store = Store.find(params[:store_id])
-    @products = @store.products
+    @products = @store.products.includes([photos_attachments: :blob])
   end
 
   def show

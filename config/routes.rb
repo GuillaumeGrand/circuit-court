@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   end
 
   get '/dashboard', to: 'users#dashboard', as: :dashboard
+
+  post '/cart/:product_id/:quantity', to: 'carts_items#add_product_to_cart', as: :add_product_to_cart
 end

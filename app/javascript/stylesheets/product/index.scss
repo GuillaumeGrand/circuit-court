@@ -1,30 +1,30 @@
 .card-product {
   overflow: hidden;
-  height: 200px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  height: 12.5rem;
+  background: var(--info-bg-color);
+  box-shadow: 0 0 1rem rgba(0,0,0,0.2);
   display: flex;
   justify-content: space-between;
-  margin-top: 16px;
+  margin-top: 1rem;
   max-width: 60rem;
 }
 
 .card-product-infos {
   flex-grow:1;
-  padding: 16px;
+  padding: 1rem;
 }
 
 .card-trip-pricing{
-  width: 188px;
-  padding-right: 32px;
-    padding-top: 40px;
+  width: 11.75rem;
+  padding-right:2rem;
+    padding-top: 2.5rem;
 }
 
 .card-trip-pricing h2{
-  color: red;
-  font-size:24px;
+  color: var(--price);
+  font-size: 1.5rem;
   font-weight: bold;
-  padding-bottom: 8px;
+  padding-bottom: 0.5rem;
 }
 
 // .photo_product{
@@ -33,4 +33,18 @@
 .toto {
   display: flex;
   flex-direction: row;
+}
+
+.card-trip-pricing{
+  width: 11.75rem;
+  padding-right: 2rem;
+  padding-top: 2.5rem;
+  text-decoration: none;
+}
+
+.card-trip-pricing h2{
+  color:  var(--price);
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding-bottom: 0.5rem;
 }

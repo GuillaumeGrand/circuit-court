@@ -15,7 +15,11 @@ class ApplicationController < ActionController::Base
 
 private
 
-  def ternary_for_user_type(user_type)
-    current_user.user_type == user_type ? authenticate_user! : redirect_to(:root)
+  def ternary_for_user_type(user)
+    if current_user
+    current_user.user_type == user ? authenticate_user! : redirect_to(:root)
+    else
+      redirect_to(:new_user_session)
+    end
   end
 end

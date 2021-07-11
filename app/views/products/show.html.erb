@@ -3,7 +3,10 @@
     <div id= "show_photo">
       <div class = "product_photo">
          <% @product.photos.each do |photo| %>
-                <%= cl_image_tag(photo.key, :width => 40, :height => 40, :class => "photo_product", :id => photo.id) %>
+                <%= cl_image_tag(photo.key, :width => 40,
+                                            :height => 40,
+                                            :class => "photo_product",
+                                            :id => photo.id) %>
         <% end %>
       </div>
       <div id = "zoom_photo">
@@ -22,8 +25,10 @@
 
     <div class="product_data_recap">
        <h6 class="product_price size-medium">Prix: <%= @product.price %></h6>
+       <%= button_to "Ajouter au panier",add_product_to_cart_path(product_id: @product.id, quantity: 1),
+                                         :remote=>true,
+                                         class: "btn btn-success" %>
 
-    
       <i class="fa fa-lock">Transaction securisée</i>
     </div>
   </div>
