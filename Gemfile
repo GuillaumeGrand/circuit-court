@@ -1,14 +1,17 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.0'
+ruby '3.0.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.1'
 
+gem 'draper'
 gem 'cloudinary'
 gem 'simple_form'
 gem 'devise'
+gem 'stripe'
+
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 # Use Puma as the app server
@@ -33,14 +36,15 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
+  gem 'factory_bot_rails', '~> 6.2'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'dotenv-rails'
-  gem 'rspec-rails', ">= 3.9.0"
+  gem 'rspec-rails', '~> 5.0.0'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'bullet'
 end
 
 group :development do
-  gem 'bullet'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 4.1.0'
   # Display performance information such as SQL time and flame graphs for each request in your browser.

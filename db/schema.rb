@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_27_194351) do
+ActiveRecord::Schema.define(version: 2021_06_21_200533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,11 +47,13 @@ ActiveRecord::Schema.define(version: 2021_06_27_194351) do
     t.decimal "total"
     t.integer "quantity"
     t.bigint "product_id"
-    t.bigint "shopping_session_id"
+    t.bigint "store_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["product_id"], name: "index_cart_items_on_product_id"
-    t.index ["shopping_session_id"], name: "index_cart_items_on_shopping_session_id"
+    t.index ["store_id"], name: "index_cart_items_on_store_id"
+    t.index ["user_id"], name: "index_cart_items_on_user_id"
   end
 
   create_table "discounts", force: :cascade do |t|
@@ -119,15 +121,6 @@ ActiveRecord::Schema.define(version: 2021_06_27_194351) do
     t.integer "store_id"
   end
 
-  create_table "shopping_sessions", force: :cascade do |t|
-    t.decimal "total"
-    t.bigint "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "store_id"
-    t.index ["user_id"], name: "index_shopping_sessions_on_user_id"
-  end
-
   create_table "stores", force: :cascade do |t|
     t.string "name"
     t.string "presentation"
@@ -183,5 +176,4 @@ ActiveRecord::Schema.define(version: 2021_06_27_194351) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "products", "stores"
-  add_foreign_key "shopping_sessions", "stores"
 end

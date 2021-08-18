@@ -1,0 +1,17 @@
+<div class="container">
+  <% @stores.each do  |store| %>
+    <div class="cart-store">
+      <div class="cart_titel">
+        <h2><%= store[1].first.store.name %></h2>
+        <h6>Prix</h6>
+      </div>
+      <% store[1].each do  |product| %>
+        <%= render "products", :product => product %>
+      <% end %>
+      <div class="cart_buy">
+        <%= link_to 'buy',"",:store_id => store[0], :id => "checkout-buy", :class => "btn btn-link"%>
+        <p>Sous-total:<%= total_items(store)%> €</p>
+      </div>
+    </div>
+  <% end %>
+</div>

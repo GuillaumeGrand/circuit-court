@@ -17,7 +17,7 @@ private
 
   def ternary_for_user_type(user)
     if current_user
-    current_user.user_type == user ? authenticate_user! : redirect_to(:root)
+      current_user.user_type == user ? authenticate_user! : redirect_to(:root)
     else
       redirect_to(:new_user_session)
     end

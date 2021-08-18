@@ -4,7 +4,8 @@ class CreateCartItems < ActiveRecord::Migration[6.1]
       t.decimal :total
       t.integer :quantity
       t.references :product
-      t.references :shopping_session
+      t.references :store
+      t.references :user
 
       t.timestamps
     end

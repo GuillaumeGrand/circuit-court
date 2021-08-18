@@ -16,3 +16,5 @@ import "jquery";
 // import "popper.js";
 
 import('stylesheets/application.scss');
+
+import('packs/select_value_dropdown.js')
