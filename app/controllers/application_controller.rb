@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:user_type])
   end
 
+  def base_url
+    request.base_url
+  end
+
 private
 
   def ternary_for_user_type(user)

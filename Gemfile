@@ -11,6 +11,7 @@ gem 'cloudinary'
 gem 'simple_form'
 gem 'devise'
 gem 'stripe'
+gem 'money-rails', '~>1.12'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
@@ -42,6 +43,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 5.0.0'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'bullet'
+  gem 'pry'
 end
 
 group :development do

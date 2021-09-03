@@ -18,3 +18,4 @@ import "jquery";
 import('stylesheets/application.scss');
 
 import('packs/select_value_dropdown.js')
+import('packs/retailer_token.js')

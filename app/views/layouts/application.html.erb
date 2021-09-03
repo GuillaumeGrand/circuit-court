@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%= javascript_include_tag 'https://checkout.stripe.com/checkout.js' %>
+    <script src="https://js.stripe.com/v3/"></script>
     <title>CircuitCourt</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>

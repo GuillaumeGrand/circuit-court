@@ -1,0 +1,30 @@
+<div class="container compagny_info" >
+  <div class="compagny_trader_info">
+  <%= form_tag retailer_identifications_path, authenticity_token: true, method: :post, class: "my-form" do %>
+    <h2>company</h2>
+    <%= hidden_field_tag "token-account" -%>
+    <%= text_field_tag 'Business Name',"", class: "stripe_identification inp-company-name", placeholder: "Business Name"%>
+    <%= text_field_tag 'External account',"", class: "stripe_identification inp-company-account", placeholder: "External account" %>
+    <h2>company address</h2>
+    <%= text_field_tag 'Street Address Line 1',"", class: "stripe_identification inp-company-street-address1", placeholder: "Street Address Line 1" %>
+    <%= text_field_tag 'City',"", class: "stripe_identification inp-company-city", placeholder: "City" %>
+    <%= text_field_tag 'code postal',"", class: "stripe_identification inp-company-zip", placeholder: "code postal" %>
+    <h2>Owners</h2>
+    <%= text_field_tag 'first name',"", class: "stripe_identification inp-owners-first_name", placeholder: "first name" %>
+    <%= text_field_tag 'last name',"", class: "stripe_identification inp-owners-last_name", placeholder: "last name" %>
+    <%= text_field_tag 'email',"", class: "stripe_identification inp-owners-email", placeholder: "email" %>
+    <%= text_field_tag 'day',"", class: "stripe_identification inp-owners-day", placeholder: "day" %>
+    <%= text_field_tag 'month',"", class: "stripe_identification inp-owners-month", placeholder: "month" %>
+    <%= text_field_tag 'year',"", class: "stripe_identification inp-owners-year", placeholder: "year" %>
+    <%= text_field_tag 'phone',"", class: "stripe_identification inp-owners-phone", placeholder: "phone" %>
+    <h2>Owners adress</h2>
+    <%= text_field_tag 'owner Street Address Line 1',"", class: "stripe_identification inp-owners-street-address1", placeholder: "Street Address Line 1" %>
+    <%= text_field_tag 'City owner',"", class: "stripe_identification inp-owners-city", placeholder: "City" %>
+    <%= text_field_tag 'owner code postal',"", class: "stripe_identification inp-owners-zip", placeholder: "code postal" %>
+    <h2>Document</h2>
+    <%= file_field_tag  "front", class: "inp-person-front" %>
+    <%= file_field_tag  "back", class: "inp-person-back" %>
+    <%= button_tag 'submit', id: "owners_action", style: "display: block; margin: 0 auto;" %>
+  <% end %>
+  </div>
+</div>
