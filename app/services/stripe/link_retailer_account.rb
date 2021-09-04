@@ -9,6 +9,7 @@ module Stripe
     end
 
     def call
+      Stripe.api_key = ENV['STRIPE_SECRET_KEY']
       account_links = Stripe::AccountLink.create({
                                                    account: account['id'],
                                                    refresh_url: base_url,

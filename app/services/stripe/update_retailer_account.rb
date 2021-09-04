@@ -6,6 +6,7 @@ module Stripe
     end
 
     def call
+      Stripe.api_key = ENV['STRIPE_SECRET_KEY']
       Stripe::Account.update(
         account_id,
         business_profile: {

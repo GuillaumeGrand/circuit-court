@@ -8,6 +8,7 @@ module Stripe
     end
 
     def call
+      Stripe.api_key = ENV['STRIPE_SECRET_KEY']
       account = Stripe::Account.create({
                                        country: 'FR',
                                        business_profile: {

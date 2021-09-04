@@ -7,6 +7,7 @@ module Stripe
         end
 
         def call
+            Stripe.api_key = ENV['STRIPE_SECRET_KEY']
             Stripe::File.create({
                 file: File.new(document),
                 purpose: 'identity_document',

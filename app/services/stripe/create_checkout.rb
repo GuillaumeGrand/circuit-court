@@ -8,6 +8,7 @@ module Stripe
     end
 
     def call
+      Stripe.api_key = ENV['STRIPE_SECRET_KEY']
       Stripe::Checkout::Session.create({
                                         payment_method_types: ['card'],
                                           line_items: [{
