@@ -33,7 +33,7 @@ module Stripe
     def total
       total = 0
       items.each do |item|
-        total =+ (item.product.price * item.quantity)
+        total =+ (item.product_price * item.quantity)
       end
       return total
     end

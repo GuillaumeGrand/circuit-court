@@ -7,8 +7,9 @@ class RetailerIdentificationsController < ApplicationController
     retailer = User.find(current_user.id)
     account = Stripe::CreateRetailerAccount.call(params['token-account'])
     Stripe::LinkRetailerAccount.call(account, base_url, retailer)
-    # Stripe::FileUpload.call(params[:back])
-    # Stripe::FileUpload.call(params[:front])
+    
+    Stripe::FileUpload.call(params[:front], 'account_requirement')
+    Stripe::FileUpload.call(params[:back], 'additional_verification')
 
     redirect_to root_path
   end

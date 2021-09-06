@@ -1,30 +1,30 @@
 <div class="container compagny_info" >
   <div class="compagny_trader_info">
-  <%= form_tag retailer_identifications_path, authenticity_token: true, method: :post, class: "my-form" do %>
+  <%= form_with url: retailer_identifications_path, authenticity_token: true, method: :post, class: "my-form" do |f| %>
     <h2>company</h2>
-    <%= hidden_field_tag "token-account" -%>
-    <%= text_field_tag 'Business Name',"", class: "stripe_identification inp-company-name", placeholder: "Business Name"%>
-    <%= text_field_tag 'External account',"", class: "stripe_identification inp-company-account", placeholder: "External account" %>
+    <%= f.hidden_field "token-account" %>
+    <%= f.text_field 'Business Name', class: "stripe_identification inp-company-name", placeholder: "Business Name"%>
+    <%= f.text_field 'External account', class: "stripe_identification inp-company-account", placeholder: "External account" %>
     <h2>company address</h2>
-    <%= text_field_tag 'Street Address Line 1',"", class: "stripe_identification inp-company-street-address1", placeholder: "Street Address Line 1" %>
-    <%= text_field_tag 'City',"", class: "stripe_identification inp-company-city", placeholder: "City" %>
-    <%= text_field_tag 'code postal',"", class: "stripe_identification inp-company-zip", placeholder: "code postal" %>
+    <%= f.text_field 'Street Address Line 1', class: "stripe_identification inp-company-street-address1", placeholder: "Street Address Line 1" %>
+    <%= f.text_field 'City', class: "stripe_identification inp-company-city", placeholder: "City" %>
+    <%= f.text_field 'code postal', class: "stripe_identification inp-company-zip", placeholder: "code postal" %>
     <h2>Owners</h2>
-    <%= text_field_tag 'first name',"", class: "stripe_identification inp-owners-first_name", placeholder: "first name" %>
-    <%= text_field_tag 'last name',"", class: "stripe_identification inp-owners-last_name", placeholder: "last name" %>
-    <%= text_field_tag 'email',"", class: "stripe_identification inp-owners-email", placeholder: "email" %>
-    <%= text_field_tag 'day',"", class: "stripe_identification inp-owners-day", placeholder: "day" %>
-    <%= text_field_tag 'month',"", class: "stripe_identification inp-owners-month", placeholder: "month" %>
-    <%= text_field_tag 'year',"", class: "stripe_identification inp-owners-year", placeholder: "year" %>
-    <%= text_field_tag 'phone',"", class: "stripe_identification inp-owners-phone", placeholder: "phone" %>
+    <%= f.text_field 'first name', class: "stripe_identification inp-owners-first_name", placeholder: "first name" %>
+    <%= f.text_field 'last name', class: "stripe_identification inp-owners-last_name", placeholder: "last name" %>
+    <%= f.text_field 'email', class: "stripe_identification inp-owners-email", placeholder: "email" %>
+    <%= f.text_field 'day', class: "stripe_identification inp-owners-day", placeholder: "day" %>
+    <%= f.text_field 'month', class: "stripe_identification inp-owners-month", placeholder: "month" %>
+    <%= f.text_field 'year', class: "stripe_identification inp-owners-year", placeholder: "year" %>
+    <%= f.text_field 'phone', class: "stripe_identification inp-owners-phone", placeholder: "phone" %>
     <h2>Owners adress</h2>
-    <%= text_field_tag 'owner Street Address Line 1',"", class: "stripe_identification inp-owners-street-address1", placeholder: "Street Address Line 1" %>
-    <%= text_field_tag 'City owner',"", class: "stripe_identification inp-owners-city", placeholder: "City" %>
-    <%= text_field_tag 'owner code postal',"", class: "stripe_identification inp-owners-zip", placeholder: "code postal" %>
+    <%= f.text_field 'owner Street Address Line 1', class: "stripe_identification inp-owners-street-address1", placeholder: "Street Address Line 1" %>
+    <%= f.text_field 'City owner', class: "stripe_identification inp-owners-city", placeholder: "City" %>
+    <%= f.text_field 'owner code postal', class: "stripe_identification inp-owners-zip", placeholder: "code postal" %>
     <h2>Document</h2>
-    <%= file_field_tag  "front", class: "inp-person-front" %>
-    <%= file_field_tag  "back", class: "inp-person-back" %>
-    <%= button_tag 'submit', id: "owners_action", style: "display: block; margin: 0 auto;" %>
+    <%= f.file_field  "front", class: "inp-person-front" %>
+    <%= f.file_field  "back", class: "inp-person-back" %>
+    <%= f.button 'submit', id: "owners_action", style: "display: block; margin: 0 auto;" %>
   <% end %>
   </div>
 </div>

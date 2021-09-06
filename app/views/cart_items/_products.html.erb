@@ -1,5 +1,5 @@
 <div class="cart_container">
-  <%= cl_image_tag(product.product.photos[0].key, :width => 180, :height => 180) if product.product.photos.present?%>
+  <%= cl_image_tag(product.product_photos[0].key, :width => 180, :height => 180) if product.product_photos.present?%>
   <div class="cart-product">
    <p><%= product.product.name %></p>
       <div class="cart_quantity">
@@ -10,5 +10,5 @@
         <%= link_to "suprimer", cart_item_path(product.id), :method => :delete, id: "cart_sup" %>
       </div>
   </div>
-   <%= product.product.price %> €
+   <%= product.product_price %> €
 </div>
