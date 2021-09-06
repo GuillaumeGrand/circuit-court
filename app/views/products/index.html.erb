@@ -1,10 +1,7 @@
 <div class="container">
   <% @products.each do |product| %>
-      <div class="card-product">
-    <%= link_to controller: "products", :class => "photo_product",
-                                    action: "show",
-                                    id: product,
-                                    store_id: product.id do %>
+    <div class="card-product">
+    <%= link_to store_product_path(id: product), :class => "photo_product" do %>
           <div class="toto">
             <div class="show_photo_store">
                 <%= cl_image_tag(product.photos.first.key,
@@ -16,11 +13,11 @@
               <p><%= simple_format(product.desc) %></p>
             </div>
           </div>
-    <% end %>
           <div class="card-trip-pricing">
             <h2><%= product.price_cents %> € </h2>
             
           </div>
-      </div>
+    <% end %>
+    </div>
   <% end %>
 </div>

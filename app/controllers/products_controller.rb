@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :authenticate_retailer, except: [:index, :show]
-  before_action :authenticate_consumer, only: :show
+  # before_action :authenticate_consumer, only: :show
 
   def index
     @store = Store.find(params[:store_id])

@@ -9,7 +9,7 @@ class RetailerIdentificationsController < ApplicationController
     Stripe::LinkRetailerAccount.call(account, base_url, retailer)
     
     Stripe::FileUpload.call(params[:front], 'account_requirement')
-    Stripe::FileUpload.call(params[:back], 'additional_verification')
+    Stripe::FileUpload.call(params[:back], 'account_requirement')
 
     redirect_to root_path
   end
