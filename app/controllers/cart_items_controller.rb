@@ -7,6 +7,7 @@ class CartItemsController < ApplicationController
 
   def create
     order = CartItem.new(cart_params)
+    order.user_id = current_user.id
     order.save!
   end
 
