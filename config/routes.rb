@@ -7,9 +7,10 @@ Rails.application.routes.draw do
   resources :customer_identifications
   resources :cart_items, only: %i[index create update destroy]
   resources :stores do
-    resources :products, only: %i[index new create show]
+    resources :products
   end
 
   get '/dashboard', to: 'users#dashboard', as: :dashboard
+  get '/dashboard_index', to: 'products#dashbord_index', as: :dashboard_index
 
 end

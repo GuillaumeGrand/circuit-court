@@ -1,10 +1,4 @@
-<div class="new_stores">
-  <%= simple_form_for [@store, @product] do |f| %>
-    <%= f.error_notification %>
-    <%= f.input :name, input_html: { class: 'dasboard_input' } %>
-    <%= f.input :desc, input_html: { class: 'dasboard_input' } %>
-    <%= f.input :price_cents , input_html: { class: 'price_input' }%>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.button :submit, class: "device_identification update_store" %>
-  <% end %>
-</div>
+<%= render "shared/form_for_product", product: @product,  
+                                      store: @store,
+                                      url: store_products_path,
+                                      method: "post" %>

@@ -1,5 +1,4 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_retailer, except: [:index, :show]
   
   def index
     @store = Store.find(params[:store_id])
@@ -23,9 +22,30 @@ class ProductsController < ApplicationController
     redirect_to root_path
   end
 
+  def dashbord_index
+    @store = Store.find(params[:store_id])
+    @products = @store.products.includes([photos_attachments: :blob])
+  end
+
+  def edit
+    @store = Store.find(current_user.store.id)
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    @product = Product.find(params[:id])
+    if product_params['photos'].nil? == false
+      @product.photos.each do |photo|
+        Cloudinary::Uploader.destroy(photo.key)
+      end
+    end
+    @product.update(product_params)
+    redirect_to store_path(@product.store.id)
+  end
+
   private
 
   def product_params
-    params.require(:product).permit(:name, :desc, :price, photos: [])
+    params.require(:product).permit(:name, :desc, :price_cents, photos: [])
   end
 end
