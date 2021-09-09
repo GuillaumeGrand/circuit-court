@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
     redirect_to root_path
   end
 
-  def dashbord_index
+  def dashboard_index
     @store = Store.find(params[:store_id])
     @products = @store.products.includes([photos_attachments: :blob])
   end

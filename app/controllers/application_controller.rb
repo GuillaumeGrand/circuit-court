@@ -26,4 +26,8 @@ private
       redirect_to(:new_user_session)
     end
   end
+
+  def set_js_environment
+    gon.stripe_publishable_key = ENV['STRIPE_PUBLISHABLE_KEY']
+  end
 end

@@ -12,6 +12,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'stripe'
 gem 'money-rails', '~>1.12'
+gem 'gon'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'

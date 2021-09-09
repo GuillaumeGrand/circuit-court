@@ -1,0 +1,26 @@
+<%= form_with url: url, authenticity_token: true, method: method, class: "my-form" do |f| %>
+    <h2>company</h2>
+    <%= f.hidden_field "token-account" %>
+    <%= f.text_field 'Business Name', class: "stripe_identification inp-company-name", placeholder: "Business Name"%>
+    <%= f.text_field 'External account', class: "stripe_identification inp-company-account", placeholder: "External account" %>
+    <h2>company address</h2>
+    <%= f.text_field 'Street Address Line 1', class: "stripe_identification inp-company-street-address1", placeholder: "Street Address Line 1" %>
+    <%= f.text_field 'City', class: "stripe_identification inp-company-city", placeholder: "City" %>
+    <%= f.text_field 'code postal', class: "stripe_identification inp-company-zip", placeholder: "code postal" %>
+    <h2>Owners</h2>
+    <%= f.text_field 'first name', class: "stripe_identification inp-owners-first_name", placeholder: "first name" %>
+    <%= f.text_field 'last name', class: "stripe_identification inp-owners-last_name", placeholder: "last name" %>
+    <%= f.text_field 'email', class: "stripe_identification inp-owners-email", placeholder: "email" %>
+    <%= f.text_field 'day', class: "stripe_identification inp-owners-day", placeholder: "day" %>
+    <%= f.text_field 'month', class: "stripe_identification inp-owners-month", placeholder: "month" %>
+    <%= f.text_field 'year', class: "stripe_identification inp-owners-year", placeholder: "year" %>
+    <%= f.text_field 'phone', class: "stripe_identification inp-owners-phone", placeholder: "phone" %>
+    <h2>Owners adress</h2>
+    <%= f.text_field 'owner Street Address Line 1', class: "stripe_identification inp-owners-street-address1", placeholder: "Street Address Line 1" %>
+    <%= f.text_field 'City owner', class: "stripe_identification inp-owners-city", placeholder: "City" %>
+    <%= f.text_field 'owner code postal', class: "stripe_identification inp-owners-zip", placeholder: "code postal" %>
+    <h2>Document</h2>
+    <%= f.file_field  "front", class: "inp-person-front" %>
+    <%= f.file_field  "back", class: "inp-person-back" %>
+    <%= f.button 'submit', id: "owners_action", style: "display: block; margin: 0 auto;" %>
+<% end %>
