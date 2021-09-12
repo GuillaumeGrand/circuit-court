@@ -1,11 +1,11 @@
 // document.addEventListener("turbolinks:load", function() {
-  // Assumes you've already included Stripe.js!
+
 const stripe = Stripe(gon.stripe_publishable_key);
-
+console.log(2)
 const myForm = document.querySelector('.my-form');
-
+console.log(myForm)
   if(myForm){
-  
+  console.log(1)
   myForm.addEventListener('submit', handleForm);
     async function handleForm(event) {
 

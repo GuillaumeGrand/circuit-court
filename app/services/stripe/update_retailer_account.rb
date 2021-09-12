@@ -1,8 +1,9 @@
 module Stripe
   class UpdateRetailerAccount < ApplicationService
-    attr_reader :account_id
-    def initialize(account_id)
+    attr_reader :account_id, :token
+    def initialize(account_id, token)
       @account_id = account_id
+      @token = token
     end
 
     def call
@@ -16,6 +17,7 @@ module Stripe
         capabilities: {
           transfers: { requested: true }
         },
+        account_token: token
       )
     end
   end

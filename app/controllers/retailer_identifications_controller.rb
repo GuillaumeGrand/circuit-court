@@ -18,11 +18,12 @@ class RetailerIdentificationsController < ApplicationController
   end
 
   def update
+    
     user = User.find(current_user.id)
     # foo = Stripe::FileUpload.call(params[:front], 'account_requirement')
     # Stripe::FileUpload.call(params[:back], 'account_requirement')
     
-    Stripe::UpdateRetailerAccount.call(user.stripe_account)
+    Stripe::UpdateRetailerAccount.call(user.stripe_account, params['token-account'])
     redirect_to dashboard_path
   end
 end
