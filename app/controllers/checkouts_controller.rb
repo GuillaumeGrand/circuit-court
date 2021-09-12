@@ -6,5 +6,6 @@ class CheckoutsController < ApplicationController
     items = CartItem.all.find_user_orders_in_store(user_id, store_id)
 
     Stripe::CreateCheckout.call(items, base_url, store_id)
+    render json: session
   end
 end

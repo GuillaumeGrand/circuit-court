@@ -247,6 +247,10 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     stripe (5.38.0)
+    stripe-rails (2.3.0)
+      rails (>= 5.1)
+      responders
+      stripe (>= 3.15.0)
     thor (1.1.0)
     tilt (2.0.10)
     turbolinks (5.2.1)
@@ -300,7 +304,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   simple_form
   spring
-  stripe
+  stripe-rails
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)

@@ -40,7 +40,7 @@ class ProductsController < ApplicationController
       end
     end
     @product.update(product_params)
-    redirect_to store_path(@product.store.id)
+    redirect_to dashboard_path(@product.store.id)
   end
 
   private

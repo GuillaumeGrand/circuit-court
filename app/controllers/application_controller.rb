@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_action :set_js_environment
   before_action :configure_permitted_parameters, if:  :devise_controller?
 
   def authenticate_retailer
@@ -30,4 +31,5 @@ private
   def set_js_environment
     gon.stripe_publishable_key = ENV['STRIPE_PUBLISHABLE_KEY']
   end
+  
 end

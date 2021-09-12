@@ -10,9 +10,9 @@ gem 'draper'
 gem 'cloudinary'
 gem 'simple_form'
 gem 'devise'
-gem 'stripe'
 gem 'money-rails', '~>1.12'
 gem 'gon'
+gem 'stripe-rails'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
