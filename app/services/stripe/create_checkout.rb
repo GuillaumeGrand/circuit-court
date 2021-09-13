@@ -13,7 +13,7 @@ module Stripe
                                         payment_method_types: ['card'],
                                           line_items: [{
                                             name: items[0].store.name,
-                                            amount: 120,
+                                            amount:  total,
                                             currency: 'eur',
                                             quantity: 1
                                           }],
@@ -24,7 +24,7 @@ module Stripe
                                           }
                                         },
                                         mode: 'payment',
-                                        success_url: @base_url + "/checkouts/success/#{@store_id}",
+                                        success_url: @base_url ,
                                         cancel_url: @base_url
                                         })
 
@@ -34,10 +34,10 @@ module Stripe
     def total
       total = 0
       items.each do |item|
-        total =+ (item.product.price_cents * item.quantity)
+        total += ((item.product.price_cents * item.quantity) * 100)
       end
+      # binding.pry
       return total
     end
-
   end
 end

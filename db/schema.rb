@@ -115,7 +115,7 @@ ActiveRecord::Schema.define(version: 2021_06_20_112809) do
     t.string "name"
     t.string "desc"
     t.integer "SKU"
-    t.decimal "price_cents"
+    t.integer "price_cents"
     t.bigint "store_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

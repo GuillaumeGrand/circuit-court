@@ -5,6 +5,8 @@ class Product < ApplicationRecord
   has_many :product_inventories
   has_many_attached :photos
 
+  monetize :price_cents
+
   def product_price
     product.price_cents
   end
