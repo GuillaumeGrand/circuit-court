@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'users#dashboard', as: :dashboard
   get '/dashboard_index', to: 'products#dashboard_index', as: :dashboard_index
 
+  get '/checkout/success', to: 'checkouts#success'
 end

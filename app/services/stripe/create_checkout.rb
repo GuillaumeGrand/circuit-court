@@ -24,7 +24,7 @@ module Stripe
                                           }
                                         },
                                         mode: 'payment',
-                                        success_url: @base_url ,
+                                        success_url: @base_url + "/checkout/success",
                                         cancel_url: @base_url
                                         })
 
@@ -36,7 +36,6 @@ module Stripe
       items.each do |item|
         total += ((item.product.price_cents * item.quantity) * 100)
       end
-      # binding.pry
       return total
     end
   end

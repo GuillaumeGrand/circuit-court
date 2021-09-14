@@ -13,7 +13,7 @@ class CartItemsController < ApplicationController
 
   def update
     product_quantity = params['quantity']
-    cart = CartItem.find(params["id"])
+    cart = current_user.cart_items.find(params["id"])
     cart.quantity = product_quantity
     cart.save!
 
@@ -21,7 +21,7 @@ class CartItemsController < ApplicationController
   end
 
   def destroy
-    cart = CartItem.find(params[:id])
+    cart = current_user.cart_items.find(params[:id])
     cart.destroy
 
     redirect_to cart_items_path

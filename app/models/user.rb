@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   has_one :store
   has_one :user_address
-  has_one :cart_items
+  has_many :cart_items
   has_many :user_payments
   has_many :order_details
 end
