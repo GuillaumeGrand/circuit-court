@@ -29,7 +29,6 @@
       <%= button_to "Ajouter au panier",cart_items_path("product_id" => @product.id,
                                                                   "quantity" => 1,
                                                                   "store_id" => @product.store.id),
-                                        :remote=>true,
                                         class: "btn btn-success" %>
 
       <i class="fa fa-lock">Transaction securisée</i>

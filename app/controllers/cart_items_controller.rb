@@ -1,33 +1,43 @@
 class CartItemsController < ApplicationController
   before_action :authenticate_consumer
+  before_action :set_item, only: [:update, :destroy]
 
   def index
-    @stores = CartItemDecorator.decorate_collection(CartItem.find_cart_items(current_user))
+    @items = repo.finding_cart_items(current_user)
   end
 
   def create
-    order = CartItem.new(cart_params)
-    order.user_id = current_user.id
-    order.save!
+    success = ->(store_id) { redirect_to store_products_path(store_id), notice: 'cart item has been updated' }
+    error = ->(store_id) { redirect_to store_products_path(store_id), notice: 'error' }
+
+    UseCases::CartItem::AddToCart.call(params[:store_id], current_user, cart_params, success: success, failure: error)
   end
 
   def update
-    product_quantity = params['quantity']
-    cart = current_user.cart_items.find(params["id"])
-    cart.quantity = product_quantity
-    cart.save!
-
-    redirect_to :back
+    success = -> { redirect_to cart_items_path }
+    error = -> { redirect_to root_path }
+    
+    UseCases::CartItem::ChangeQuantity.call(@item, cart_params, success: success, failure: error)
   end
 
   def destroy
-    cart = current_user.cart_items.find(params[:id])
-    cart.destroy
+    success = -> {redirect_to cart_items_path }
+    error = -> { redirect_to root_path }
 
-    redirect_to cart_items_path
+    UseCases::CartItem::DeleteItem.call(@item, success: success, failure: error)
   end
+
+  private
 
   def cart_params
     params.permit(:quantity, :product_id, :user_id, :store_id)
+  end
+
+  def repo
+    @repo ||= CartItemRepository.new
+  end
+
+  def set_item
+    @item = current_user.cart_items.find(params[:id])
   end
 end

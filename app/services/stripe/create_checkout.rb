@@ -1,10 +1,11 @@
 module Stripe
   class CreateCheckout < ApplicationService
-    attr_reader :items, :base_url, :store_id
+    attr_reader :items, :base_url, :store_id, :total
     def initialize(items, base_url, store_id)
       @items = items
       @base_url = base_url
       @store_id = store_id
+      @total = total_amount
     end
 
     def call
@@ -24,14 +25,14 @@ module Stripe
                                           }
                                         },
                                         mode: 'payment',
-                                        success_url: @base_url + "/checkout/success",
+                                        success_url: @base_url + "/checkout/success/" + store_id + "/" + total.to_s,
                                         cancel_url: @base_url
                                         })
 
     end
     private
 
-    def total
+    def total_amount
       total = 0
       items.each do |item|
         total += ((item.product.price_cents * item.quantity) * 100)

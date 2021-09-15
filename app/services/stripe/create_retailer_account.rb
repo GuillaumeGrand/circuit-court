@@ -12,12 +12,12 @@ module Stripe
       account = Stripe::Account.create({
                                        country: 'FR',
                                        business_profile: {
-                                         product_description: 'product_description',
-                                         mcc: '5734',
+                                          product_description: 'product_description',
+                                          mcc: '5734',
                                        },
                                        capabilities: {
-                                         card_payments: { requested: true},
-                                         transfers: { requested: true }
+                                          card_payments: { requested: true},
+                                          transfers: { requested: true }
                                        },
                                        type: 'custom',
                                        account_token: token
