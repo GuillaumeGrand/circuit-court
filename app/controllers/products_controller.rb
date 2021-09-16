@@ -1,51 +1,53 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_retailer, only: [:new, :create, :dashboard_index, :edit, :update]
+  before_action :set_store, only: [:index, :new, :create, :dashboard_index, :edit]
+  before_action :set_product, only: [:show, :edit, :update]
   
   def index
-    @store = Store.find(params[:store_id])
-    @products = @store.products.includes([photos_attachments: :blob])
+    @products = repo.all_products(@store)
   end
 
-  def show
-    @product = Product.includes([photos_attachments: :blob]).find(params[:id])
-  end
+  def show; end
 
   def new
-    @store = Store.find(current_user.store.id)
-    @product = Product.new
+    @product = repo.new_entity
   end
 
   def create
-    product = Product.new(product_params)
-    @store = Store.find(params[:store_id])
-    product.store = @store
-    product.save
-    redirect_to root_path
+    success = -> (store) { redirect_to store_products_path(store) }
+    error = -> { redirect_to root_path }
+
+    UseCases::Product::CreateProduct.call(@store, product_params, success: success, error: error)
   end
 
   def dashboard_index
-    @store = Store.find(params[:store_id])
-    @products = @store.products.includes([photos_attachments: :blob])
+    @products = repo.dashboard_index(@store)
   end
 
-  def edit
-    @store = Store.find(current_user.store.id)
-    @product = Product.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @product = Product.find(params[:id])
-    if product_params['photos'].nil? == false
-      @product.photos.each do |photo|
-        Cloudinary::Uploader.destroy(photo.key)
-      end
-    end
-    @product.update(product_params)
-    redirect_to dashboard_path(@product.store.id)
+    success = -> (product) { redirect_to dashboard_path(product.store) }
+    error = -> { redirect_to root_path }
+
+    UseCases::Product::UpdateProduct.call(product_params['photos'], @product, product_params, success: success, error: error)
   end
 
   private
 
+  def repo
+    @repo ||= ProductRepository.new
+  end
+
   def product_params
     params.require(:product).permit(:name, :desc, :price_cents, photos: [])
+  end
+
+  def set_store
+    @store = Store.find(params[:store_id] || current_user.store.id)
+  end
+
+  def set_product
+    @product = repo.find(params[:id])
   end
 end

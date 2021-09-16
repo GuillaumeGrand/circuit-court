@@ -3,7 +3,7 @@ module UseCases
         class ChangeQuantity
             def self.call(item, attrs, callbacks, repository = CartItemRepository.new)
                 item.assign_attributes(attrs)
-                repository.save(item) ? callbacks[:success].call : callbacks[:success].call
+                repository.save(item) ? callbacks[:success].call : callbacks[:error].call
             end
         end
     end
