@@ -12,7 +12,7 @@ module UsersHelper
       if current_user.user_type == "retailer"
         link_to "dashboard", dashboard_path, class: "navbar_link"
       else
-        link_to "Mes achats", new_user_session_path, class: "navbar_link"
+        link_to "Mes achats", order_detail_path(current_user), class: "navbar_link"
       end
     else
       link_to "Mes achats", new_user_session_path, class: "navbar_link"
