@@ -17,7 +17,10 @@ class ProductsController < ApplicationController
     success = -> (store) { redirect_to store_products_path(store) }
     error = -> { redirect_to root_path }
 
-    UseCases::Product::CreateProduct.call(@store, product_params, success: success, error: error)
+    UseCases::Product::CreateProduct.call(@store, 
+                                          product_params, 
+                                          success: success, 
+                                          error: error)
   end
 
   def dashboard_index
@@ -30,7 +33,10 @@ class ProductsController < ApplicationController
     success = -> (product) { redirect_to dashboard_path(product.store) }
     error = -> { redirect_to root_path }
 
-    UseCases::Product::UpdateProduct.call(product_params['photos'], @product, product_params, success: success, error: error)
+    UseCases::Product::UpdateProduct.call(product_params['photos'], 
+                                          @product, product_params, 
+                                          success: success, 
+                                          error: error)
   end
 
   private
