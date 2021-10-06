@@ -1,6 +1,6 @@
 module UseCases
     module Product
-        class CreateProduct
+        class CreateProduct < UseCases::Base
             def self.call(store, attrs, callbacks, repository = ProductRepository.new)
                 product = repository.new_entity(attrs)
                 product.store = store

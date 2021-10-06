@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
     success = -> (store) { redirect_to store_products_path(store) }
     error = -> { redirect_to root_path }
 
-    UseCases::Product::CreateProduct.call(@store, 
+    UseCases::Product::CreateProduct.create(@store, 
                                           product_params, 
                                           success: success, 
                                           error: error)

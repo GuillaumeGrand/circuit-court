@@ -3,15 +3,22 @@
       <% if current_user.store.nil?%>
         <li><%= link_to "crée la boutique", new_store_path, class: "dasboard_button", remote: true %></li>
       <% else %>
-        <li><%= link_to "mise a jours de la boutique", edit_store_path(current_user.store), class: "dasboard_button", remote: true %></li>
+        <li><%= link_to "mise a jours de la boutique", edit_store_path(current_user.store), 
+                                                        class: "dasboard_button", 
+                                                        remote: true %></li>
       <% end %>
       <% if current_user.store.nil? ==  false %>
-        <li><%= link_to "crée un produit", new_store_product_path(current_user.store.id), class: "dasboard_button", remote: true %></li>
-        <li><%= link_to "mise a jours des produits", dashboard_index_path(store_id: current_user.store.id), class: "dasboard_button", remote: true %></li>
-        <li><%= link_to "commande", root_path , class: "dasboard_button", remote: true %></li>
+        <li><%= link_to "crée un produit", new_store_product_path(current_user.store.id), 
+                                            class: "dasboard_button", 
+                                            remote: true %></li>
+        <li><%= link_to "mise a jours des produits", dashboard_index_path(store_id: current_user.store.id), 
+                                                      class: "dasboard_button", 
+                                                      remote: true %></li>
+        <li><%= link_to "commande", order_details_path , class: "dasboard_button", remote: true %></li>
         <li><%= link_to "historique des commande", root_path , class: "dasboard_button", remote: true %></li>
       <% end %>
-        <li><%= link_to "mise a jour des données personnelles", edit_retailer_identification_path(current_user), class: "dasboard_button" %></li>
+        <li><%= link_to "mise a jour des données personnelles", edit_retailer_identification_path(current_user), 
+                                                                class: "dasboard_button" %></li>
         <li><%= link_to "abonnement", root_path, class: "dasboard_button" %></li>
     </ul>
 

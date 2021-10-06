@@ -1,6 +1,6 @@
 module UseCases
     module Product
-        class UpdateProduct
+        class UpdateProduct < Base
             def self.call(params_photos, product, attrs, callbacks, repository = ProductRepository.new)
                 destroy_photos(params_photos, product)
                 product.assign_attributes(attrs)

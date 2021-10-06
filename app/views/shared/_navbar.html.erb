@@ -1,12 +1,16 @@
-<header class="topnav">
-  <%= link_to "logo", root_path, class: "navbar_link logo" %>
+<header>
+  <div class="nav-links">
+    <%= link_to "logo", root_path, class: "navbar_link logo" %>
+    <%= link_to "Adresse de livraison", root_path, class: "navbar_link logo" %>
+  </div>
 
   <%= form_with url: stores_path, method: :get do |f| %>
+    <%= f.select(:status_type, options_for_select([["toutes nos categories"], ["select", "rrr"]])) %>
     <%= f.text_field :search_box %>
     <%= f.submit "Search" %>
   <% end %>
 
-  <nav>
+  <nav class="nav-links">
     <%= user_connexion %>
     <%= user_type_link %>
     <%= link_to "panier", cart_items_path, class: "navbar_link" %>

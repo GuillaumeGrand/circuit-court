@@ -1,46 +1,43 @@
-.topnav {
+header {
   display: flex;
-  flex-direction: row ;
-  justify-content: space-around;
-  align-items: center;
-  min-height: 64px;
+  flex-direction: row;
   background-color: #552C00;
+  max-height: 3.625em;
 }
-
-.topnav form {
-  flex-grow: 4;
+header form {
   display: flex;
-  padding-left: 20px;
-  padding-right: 20px;
-  max-height: 32px;
-  min-height: 32px;
+  flex-direction: row;
+  flex-grow: 2;
+  padding: 0.625em 0.25em 0.625em 0.188em;
+  margin: 0em 1.125em;
 }
 
-.navbar_link {
-  padding-left: 20px;
-  padding-right: 20px;
+#search_box {
+  flex-grow: 2;
+  height: 2.375em;
 }
 
-.logo {
-  display: flex;
-  justify-content: center;
-}
-
-.topnav nav {
+.nav-links {
   display: flex;
   justify-content: center;
+  min-width: 268px;
+  display: flex;
+  align-items: center;
+  
 }
 
-.topnav nav, .logo {
-  width: 352px;
-}
-
-.navbar_link {
-  color: white;
+.nav-links * {
+  color: azure;
   text-decoration: none;
-
+  padding: 0em 0.563em;
+  margin: 0.312em 0.125em 0.313 0em;
+  line-height: 2.75em;
+  font-size: 0.875rem;
+  font-weight: 700;
 }
 
- #search_box {
-   flex-grow: 2;
- }
+.nav-links *:hover {
+  border: 0.063em solid azure;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+}
