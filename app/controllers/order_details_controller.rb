@@ -9,7 +9,5 @@ class OrderDetailsController  < ApplicationController
         @orders = current_user.store.order_details
     end
 
-    def update
-        
-    end
+    def update; end
 end
