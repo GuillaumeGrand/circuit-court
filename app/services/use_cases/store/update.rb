@@ -1,6 +1,6 @@
 module UseCases
     module Store
-        class UpdateStore < Base
+        class Update
             def self.call(params, store, attrs, callbacks, repository = StoreRepository.new)
                 destroy_photos(params, store)
                 store.assign_attributes(attrs)

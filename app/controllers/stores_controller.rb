@@ -14,7 +14,7 @@ class StoresController < ApplicationController
     success = -> { redirect_to dashboard_path }
     error = -> { redirect_to root_path }
 
-    UseCases::Store::CreateStore.call(current_user, 
+    UseCases::Store::Create.call(current_user, 
                                       store_params, 
                                       success: success, 
                                       error: error)
@@ -26,7 +26,7 @@ class StoresController < ApplicationController
     success = -> (store) { redirect_to dashboard_path(store) }
     error = -> { redirect_to root_path }
 
-    UseCases::Store::UpdateStore.call(store_params['photos'], 
+    UseCases::Store::Update.call(store_params['photos'], 
                                           @store, store_params, 
                                           success: success, 
                                           error: error)
