@@ -6,7 +6,7 @@
   display: flex;
   justify-content: space-between;
   margin-top: 1rem;
-  max-width: 60rem;
+  width: 60rem;
 }
 
 .card-product-infos {
@@ -27,9 +27,11 @@
   padding-bottom: 0.5rem;
 }
 
-// .photo_product{
-//   object-fit: cover;
-// }
+.photo_product_card{
+  width: 60rem;
+  height: 12.5rem;
+}
+
 .toto {
   display: flex;
   flex-direction: row;
@@ -47,4 +49,15 @@
   font-size: 1.5rem;
   font-weight: bold;
   padding-bottom: 0.5rem;
+}
+
+.product_index_user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product_index_user a{
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }

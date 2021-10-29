@@ -1,4 +1,6 @@
-<% @products.each do |product| %>
-    <%= render "shared/product", product: product, store_id: @store %>
-    <%= button_to "update", edit_store_product_path(id: product, store_id: @store), method: "get", remote: true %>
-<% end %>
+<div class="dashbord_product_update">
+    <% @products.each do |product| %>
+        <%= render "shared/product", product: product, store_id: @store %>
+        <%= button_to "update", edit_store_product_path(id: product, store_id: @store), method: "get", remote: true %>
+    <% end %>
+</div>
