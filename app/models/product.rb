@@ -6,6 +6,8 @@ class Product < ApplicationRecord
   has_many :product_inventories
   has_many_attached :photos
 
+  accepts_nested_attributes_for :product_categories
+
   monetize :price_cents
 
   def product_price

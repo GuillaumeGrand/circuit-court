@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :authenticate_retailer, only: [:new, :create, :dashboard_index, :edit, :update]
   before_action :set_store, only: [:index, :new, :create, :dashboard_index, :edit]
-  before_action :set_product, only: [:show, :edit, :update]
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
   
   def index
     @products = repo.all_products(@store)
@@ -11,13 +11,14 @@ class ProductsController < ApplicationController
 
   def new
     @product = repo.new_entity
+    @product.product_categories.build
   end
 
   def create
     success = -> (store) { redirect_to store_products_path(store) }
     error = -> { redirect_to root_path }
 
-    UseCases::Product::Create.create(@store, 
+    UseCases::Product::Create.call(@store, 
                                           product_params, 
                                           success: success, 
                                           error: error)
@@ -39,6 +40,13 @@ class ProductsController < ApplicationController
                                           error: error)
   end
 
+  def destroy
+    success = -> { redirect_to root_path }
+    error = -> { redirect_to root_path }
+
+    UseCases::Product::Delete.call(@product, success: success, error: error)
+  end
+
   private
 
   def repo
@@ -46,7 +54,11 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :desc, :price_cents, photos: [])
+    params.require(:product).permit(:name, 
+                                    :desc, 
+                                    :price_cents, 
+                                    photos: [], 
+                                    :product_categories_attributes => [:id, :name])
   end
 
   def set_store
