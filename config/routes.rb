@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :cart_items, only: %i[index create update destroy]
   resources :stores do
     resources :products
+    resources :product_categories
   end
 
   get '/dashboard', to: 'users#dashboard', as: :dashboard

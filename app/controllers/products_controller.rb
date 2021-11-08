@@ -1,17 +1,20 @@
 class ProductsController < ApplicationController
   before_action :authenticate_retailer, only: [:new, :create, :dashboard_index, :edit, :update]
-  before_action :set_store, only: [:index, :new, :create, :dashboard_index, :edit]
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_store, exept: [:update, :destroy]
+  before_action :set_categories, only: [:index, :show]
+  
   
   def index
-    @products = repo.all_products(@store)
+    category = repo.category_param(@store, params[:category])
+    @category = repo.all_products(@store, category)
   end
 
   def show; end
 
   def new
     @product = repo.new_entity
-    @product.product_categories.build
+    @product.build_product_category
   end
 
   def create
@@ -55,10 +58,10 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:name, 
-                                    :desc, 
+                                    :desc,
                                     :price_cents, 
                                     photos: [], 
-                                    :product_categories_attributes => [:id, :name])
+                                    :product_category_attributes => [:id, :name])
   end
 
   def set_store
@@ -67,5 +70,9 @@ class ProductsController < ApplicationController
 
   def set_product
     @product = repo.find(params[:id])
+  end
+
+  def set_categories
+    @btn_categories = repo.find_uniq_category(@store)
   end
 end

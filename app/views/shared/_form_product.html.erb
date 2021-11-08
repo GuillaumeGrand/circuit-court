@@ -2,8 +2,8 @@
     <%= simple_form_for [store, product], url: url, method: method do |f| %>
         <%= f.error_notification %>
         <%= f.input :name, input_html: { class: 'dasboard_input' } %>
-            <%= f.fields_for :product_categories do |categories| %>
-                <%= categories.input :name %>
+            <%= f.fields_for :product_category do |f| %>
+                <%= f.input :name %>
             <% end %>
         <%= f.input :desc, input_html: { class: 'dasboard_input' } %>
         <%= f.input :price_cents , input_html: { class: 'price_input' }%>

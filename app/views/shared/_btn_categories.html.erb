@@ -1,0 +1,4 @@
+<div class="nav_store">
+    <% btn_categories.each do |category| %>
+        <%= link_to category.name,  store_products_path(store: @store, :category => category.name) %>
+<% end %>
