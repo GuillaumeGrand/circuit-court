@@ -12,6 +12,12 @@ Rails.application.routes.draw do
     resources :product_categories
   end
 
+  resources :users do
+    member do
+      get :confirm_email
+    end
+  end
+
   get '/dashboard', to: 'users#dashboard', as: :dashboard
   get '/dashboard_index', to: 'products#dashboard_index', as: :dashboard_index
 
