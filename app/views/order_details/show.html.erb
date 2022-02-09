@@ -1,9 +1,0 @@
-<% @orders.each do |order| %>
-    <%= order.total %>
-    <% order.order_items.each do |product| %>
-        <h5>nom :<%= product.product.name %></h5>
-        <h5>quantiter :<%= product.quantity %></h5>
-         <h5><%= product.quantity * product.product.price * 100%> euros</h5>
-    <%end%>
-    <h5>Status :<%= order.order_status %></h5>
-<%end%>

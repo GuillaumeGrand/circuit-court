@@ -10,6 +10,10 @@ module Stripe
 
     def call
       Stripe.api_key = ENV['STRIPE_SECRET_KEY']
+      p "f" * 150
+      p ENV['STRIPE_SECRET_KEY']
+      p items[0].store.user.stripe_account
+      p "f" * 150
       Stripe::Checkout::Session.create({
                                         payment_method_types: ['card'],
                                           line_items: [{

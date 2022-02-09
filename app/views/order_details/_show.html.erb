@@ -1,0 +1,5 @@
+<% @items.each do |item| %>
+    <h5>nom :<%= item.product.name %></h5>
+    <h5>quantiter :<%= item.quantity %></h5>
+    <h5><%= item.quantity * item.product.price * 100%> euros</h5>
+<%end%>

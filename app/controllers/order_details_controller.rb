@@ -1,8 +1,8 @@
 class OrderDetailsController  < ApplicationController
-    before_action :authenticate_consumer, only: [:show]
-    before_action :authenticate_retailer, only: [:edit]
+    # before_action :authenticate_consumer, only: [:show]
+    before_action :authenticate_retailer, only: [:edit, :show]
     def show
-        @orders = current_user.order_details
+        @items = current_user.store.order_details.find(params[:id]).order_items
     end
 
     def index
