@@ -3,3 +3,4 @@
     <h5>quantiter :<%= item.quantity %></h5>
     <h5><%= item.quantity * item.product.price * 100%> euros</h5>
 <%end%>
+<%= button_to "Terminer", order_detail_path(id: @items.first.order_detail, order_status: "finish"), method: :patch%>

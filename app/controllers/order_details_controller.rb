@@ -6,8 +6,19 @@ class OrderDetailsController  < ApplicationController
     end
 
     def index
-        @orders = current_user.store.order_details
+        @orders = current_user.store.order_details.where(order_status: "pending")
     end
 
-    def update; end
+    def update
+        order_detail = current_user.store.order_details.where(id: params[:id]).first
+        order_detail.assign_attributes(order_params)
+        order_detail.save
+        redirect_to root_path
+    end
+
+    private
+
+    def order_params
+        params.permit(:order_status, :id)
+    end 
 end
