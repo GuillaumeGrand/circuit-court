@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root to:'stores#index'
 
   resources :checkouts, only: %i[create]
-  resources :order_details
+  resources :order_details do
+    get 'histo_index', on: :collection
+  end
   resources :retailer_identifications
   resources :customer_identifications
   resources :cart_items, only: %i[index create update destroy]

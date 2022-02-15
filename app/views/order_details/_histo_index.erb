@@ -1,0 +1,6 @@
+<% @orders.each do |order| %>
+    <%= link_to order_detail_path(order), remote: true do %>
+        <%= order.total %>
+        <h5>Status :<%= order.order_status %></h5>
+    <% end %>
+<% end %>

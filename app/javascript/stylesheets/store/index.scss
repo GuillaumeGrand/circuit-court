@@ -1,27 +1,11 @@
-.store_index{
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  min-height: 100vh;
-}
-
 .cards {
-  display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.cards a {
-  text-decoration: none;
-}
-
 .card-trip {
-  margin-right: 1em;
-  overflow: hidden;
-  background: var(--info-bg-color);
-  box-shadow: 0 0 1rem rgba(0,0,0,0.2);
+  box-shadow: 0 0 1rem hsla(var(--clr-shadow));
   margin: 1rem;
-  width: 15.625rem;
 }
 
 .card-trip > img {

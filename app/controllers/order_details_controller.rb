@@ -9,6 +9,10 @@ class OrderDetailsController  < ApplicationController
         @orders = current_user.store.order_details.where(order_status: "pending")
     end
 
+    def histo_index
+        @orders = current_user.store.order_details.where(order_status: "finish")
+    end
+
     def update
         order_detail = current_user.store.order_details.where(id: params[:id]).first
         order_detail.assign_attributes(order_params)

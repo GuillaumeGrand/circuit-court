@@ -1,17 +1,15 @@
-<div class="store_index">
-  <div class="cards" >
-      <% if @stores.present? %>
-        <% @stores.each do |store|  %>
-          <%= link_to  store_products_path(store.id) do %>
-            <div class="card-trip">
-              <%= cl_image_tag store.photo.key if store.photo.present? %>
-              <div class="card-store-infos">
-                  <h2><%= store.name %></h2>
-                  <p><%= store.presentation %></p>
-              </div>
+<div class="cards flex">
+    <% if @stores.present? %>
+      <% @stores.each do |store|  %>
+        <%= link_to  store_products_path(store.id) do %>
+          <div class="card-trip">
+            <%= cl_image_tag store.photo.key if store.photo.present? %>
+            <div class="card-store-infos">
+                <h2><%= store.name %></h2>
+                <p><%= store.presentation %></p>
             </div>
-          <% end %>
+          </div>
         <% end %>
       <% end %>
-  </div>
+    <% end %>
 </div>
