@@ -1,4 +1,4 @@
-window.addEventListener("turbolinks:load", function(){
+
 
   let select_quantity = document.querySelectorAll('.select_quantity')
 
@@ -6,6 +6,7 @@ window.addEventListener("turbolinks:load", function(){
 
     value.addEventListener('change', function() {
       quantity = String(this.value)
+      console.log(quantity)
       str = this.closest(".edit_cart_item").getAttribute("id");
       id = str.split('item_')[1];
 
@@ -23,4 +24,4 @@ window.addEventListener("turbolinks:load", function(){
         fetch('cart_items/' + id,  myInit)
     });
   }
-});
+

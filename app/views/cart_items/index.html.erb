@@ -2,14 +2,14 @@
   <% @items.each do  |store| %>
     <div class="cart-store">
       <div class="cart_titel">
-        <h2><%= store[1].first.store.name %></h2>
+        <h2><%= store_name(store) %></h2>
         <h6>Prix</h6>
       </div>
       <% store[1].each do  |product| %>
-        <%= render "products", :product => product %>
+        <%= render "products", :product => fetch_product_obj(product), :store => store %>
       <% end %>
       <div class="cart_buy">
-        <%= link_to 'buy', checkouts_path(store_id: store[1][0].store_id), :id => "checkout-buy", :method => "POST",:class => "btn btn-link"%>
+        <%= link_to 'buy', checkouts_path(store_id: store_id(store)), :id => "checkout-buy", :method => "POST",:class => "btn btn-link"%>
         <p>Sous-total:<%= total_items(store)%> €</p>
       </div>
     </div>

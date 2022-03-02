@@ -18,6 +18,7 @@ import "jquery";
 import('stylesheets/application.scss');
 
 import('packs/select_value_dropdown.js')
+import('packs/select_value_cookie.js')
 import('packs/retailer_token.js')
 import('packs/update_retailer_token.js')
 import('packs/zoom_photo.js')

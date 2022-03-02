@@ -1,6 +1,6 @@
 class CartItemRepository
     def finding_cart_items(user)
-        CartItemDecorator.decorate_collection(CartItem.find_cart_items(user))
+        CartItem.find_cart_items(user)
     end
 
     def new_entity(attrs = nil)

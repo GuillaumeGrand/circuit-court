@@ -17,6 +17,7 @@
     <div class="product_data_presentation">
       <%= simple_format(@product.desc) %>
     </div>
+    
     <h6 class="product_price size-medium">Prix: <%= @product.price_cents %>€</h6>
     <%= button_to "Ajouter au panier",cart_items_path("product_id" => @product.id,
                                                                 "quantity" => 1,

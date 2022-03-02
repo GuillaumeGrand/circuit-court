@@ -1,4 +1,5 @@
 class CheckoutsController < ApplicationController
+  before_action :authenticate_consumer
   def create
     user_id = current_user.id
     store_id = params[:store_id]
