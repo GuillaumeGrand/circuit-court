@@ -4,16 +4,16 @@
 // that code so it'll be compiled.
 
 import Rails from "@rails/ujs"
-import Turbolinks from "turbolinks"
+import "@hotwired/turbo-rails";
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
 Rails.start()
-Turbolinks.start()
+
 ActiveStorage.start()
 
 import "jquery";
-// import "popper.js";
+import "popper.js";
 
 import('stylesheets/application.scss');
 
@@ -23,3 +23,10 @@ import('packs/retailer_token.js')
 import('packs/update_retailer_token.js')
 import('packs/zoom_photo.js')
 import('packs/checkout.js')
+
+$(document).on("turbolinks:load", () => {
+    console.log("turbolinks!");
+  });
+  $(document).on("turbo:load", () => {
+    console.log("turbo!");
+  });
